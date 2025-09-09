@@ -1,4 +1,4 @@
-@ Empirical Program Code Descriptions for “Functional Regression with Persistent Nonstationarity and Error Contamination”
+@ Program Code Descriptions for “Functional Regression with Persistent Nonstationarity and Error Contamination”
                                                                                                                                                    September 2025
                                                                                                                                                       Kyungsik Nam
 
@@ -18,3 +18,4 @@ To replicate the VR test reported in Table 1, use the R script FCRGT_Nonstat_Tes
 
 6. Contact Information
 For questions regarding the program code or data, please contact: Kyungsik Nam (ksnam@hufs.ac.kr) or Won-Ki Seo (won-ki.seo@sydney.edu.au).
+
