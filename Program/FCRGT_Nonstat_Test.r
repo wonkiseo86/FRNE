@@ -1,7 +1,8 @@
 # Required R packages (need to be installed first)
 library(fda); library(geigen); library(sandwich); library("readxl"); library(GMCM); library(psych);
 
-setwd("path")  
+setwd("C:/Users/noran/Dropbox/Academic_Life(201808-Present)/2_Main_Research/0_Journal_Pub/2025_Submission/202510_NS_FCRGT/Program")  
+# setwd("C:/Users/wseo2199/Dropbox/Nam_Seo/Main_FCRET")  
 
 Case = 2
 
@@ -15,37 +16,35 @@ if (Case == 1) { # Loading GRP Gr FE2 data for 1951-2019
 
 # Cointegration Rank tests 
 #1 parameter setting 
-#Parameter restriction : adddim+smax <= numbasis, the below default setting is to replicate Table 12.
 adddim = 2    # (ell-s0) : additional number of eigenfunctions used to construct projection.   
 smax = 5      # staring value (s_max) stated in the top hypothesis
-numbasis = 50 # Number of Bspline basis functions to represent functional observations. 
+numbasis = 16 # Number of Bspline basis functions to represent functional observations. 
 linear = 0    # 0 : with intercept only, 1 : with linear trend
 
 #2 Data Preprocessing, Functional PCA
 t=nage ; nobs=ncol(dmat); nrows =nrow(dmat); # x_mat = dmat;
-if (Case == 1 || Case == 2 || Case == 3 || Case == 4 || Case == 5 || Case == 6) {
   x_mat = matrix(NA, nrow=nrows, ncol=nobs);
 for (iter in 1:nobs){
   x_mat[,iter] = log(dmat[,iter]/exp(mean(log(dmat[,iter]))));  
 }
-} else if (Case == 7 || Case == 8 || Case == 9) {
-  x_mat = dmat;
-}    
+
 
 basis_fn = create.bspline.basis(rangeval = c(min(nage),max(nage)),nbasis = numbasis)
+#basis_fn = create.fourier.basis(rangeval = c(min(nage),max(nage)),nbasis = numbasis)
 
 if (linear == 0)
 {
-  xx_mat=x_mat-rowMeans(x_mat) # temporally demeaned functional data
-   
+  xx_mat=x_mat-rowMeans(x_mat)
+  
   fd_xx =  (Data2fd(y=xx_mat,argvals = t,basisobj = basis_fn))
-  hkmat = t(fd_xx$coefs)  
+  hkmat = t(fd_xx$coefs) 
   hhtau = eigen(crossprod(hkmat),symmetric = TRUE) 
+  
   
   fd_x =  (Data2fd(y=x_mat,argvals = t,basisobj = basis_fn))  
   
   h2kmat= t(fd_x$coefs -rowMeans(fd_x$coefs)) 
-  fd_z = t(h2kmat%*%hhtau$vectors[,1:numbasis])
+  fd_z = t(h2kmat%*%hhtau$vectors[,1:numbasis]) 
   fd_z = fd_z -rowMeans(fd_z) 
   
   #3 Test statistics 
@@ -63,7 +62,6 @@ if (linear == 0)
     test_vr[initer] = sum(tau[1:initer])
   }
 
-  
   Aresult=NULL
   for(i in 1:smax)
   {

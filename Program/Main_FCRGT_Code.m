@@ -5,7 +5,7 @@
 
 clear; clc; close all; 
 
-cd('C:\Users\noran\Dropbox\Academic_Life(201808-Present)\2_Main_Research\0_Journal_Pub\2025_Submission\202510_NS_FCRGT\Program') % Notebook 
+cd('C:\Users\noran\Dropbox\Academic_Life(201808-Present)\2_Main_Research\CC_endo_regime\Program\Main_FCRET\Computing_code_uploaded\202510_NS_FCRGT') % Notebook 
 % cd('C:\Users\user\Dropbox\Academic_Life(201808-Present)\2_Main_Research\CC_endo_regime\Program\Main_FCRET') % Office Desktop
 %% Set-up
 K_ind = 4; Non_dimX = (1:2); Non_dimY = (1:2);
@@ -55,6 +55,7 @@ E_GRP_Gr = mean(GRP_Gr)'; GRP_Gr = GRP_Gr-kron(ones(T,1),E_GRP_Gr');
 %% Generating the Proposed Estimator
 %%% Figure 2
 Xraw_tem = GTemp0'; T1 = size(Xraw_tem, 2); indx = floor(T1 / 2); GW2_size = 5;
+
 figure;
 plot(GTemp_Grid,mean(Xraw_tem(:,1:indx),2),'k--','LineWidth',3.5); hold on; grid on;
 plot(GTemp_Grid,mean(Xraw_tem(:,(indx+1):T1),2),'k','LineWidth',3.5); hold on;
@@ -97,10 +98,10 @@ plot(GRP_Grid(index), Sef0_gw0(index,1), 'r','LineWidth',2.0); hold on;
 plot(GRP_Grid(index), Sef0_gw1(index,1), 'k','LineWidth',4.0); hold on;
 plot(GRP_Grid(index), Sef0_gw1(index,2), 'k--','LineWidth',3.0); hold on;
 plot(GRP_Grid(index), Sef0_gw1(index,3), 'k--','LineWidth',3.0); hold on;
-axis([min(GRP_Grid) max(GRP_Grid) -0.045 0.045]); grid on;
+axis([min(GRP_Grid) max(GRP_Grid) -0.05 0.05]); grid on;
 xlabel('GRP Growth Rate','fontsize',35,'fontweight','b');
 title('Short-run Response Function','fontsize',30,'fontweight','b','LineWidth',10.0); 
-legend('GW1 at \kappa=0','GW1 at \kappa=1', '95% CI', '','NumColumns', 1, 'Location', 'Southwest','box','off');
+legend('GW1 at \kappa=0','GW1 at \kappa=1', '95% CI', '','NumColumns', 1, 'Location', 'Southeast','box','off');
 set(gca,'Linewidth',3.0,'box','on','Ticklength',[0 0],'Fontsize',30,'fontweight','b');
 figure('WindowState','maximized'); 
 subplot(1,2,1)
@@ -108,7 +109,7 @@ plot(GRP_Grid(index), Tef0_gw0_GW2(index,1), 'r','LineWidth',2.0); hold on;
 plot(GRP_Grid(index), Tef0_gw1_GW2(index,1), 'k','LineWidth',4.0); hold on;
 plot(GRP_Grid(index), Tef0_gw1_GW2(index,2), 'k--','LineWidth',3.0); hold on;
 plot(GRP_Grid(index), Tef0_gw1_GW2(index,3), 'k--','LineWidth',3.0); hold on;
-axis([min(GRP_Grid) max(GRP_Grid) -0.75 0.75]); grid on;
+axis([min(GRP_Grid) max(GRP_Grid) -0.8 0.8]); grid on;
 xlabel('GRP Growth Rate','fontsize',30,'fontweight','b');
 title('Total-run Response Function','fontsize',35,'fontweight','b','LineWidth',10.0); 
 legend('GW2 at \kappa=0','GW2 at \kappa=1', '95% CI', '','NumColumns', 1, 'Location', 'Southwest','box','off');
@@ -118,7 +119,7 @@ plot(GRP_Grid(index), Sef0_gw0_GW2(index,1), 'r','LineWidth',2.0); hold on;
 plot(GRP_Grid(index), Sef0_gw1_GW2(index,1), 'k','LineWidth',4.0); hold on;
 plot(GRP_Grid(index), Sef0_gw1_GW2(index,2), 'k--','LineWidth',3.0); hold on;
 plot(GRP_Grid(index), Sef0_gw1_GW2(index,3), 'k--','LineWidth',3.0); hold on;
-axis([min(GRP_Grid) max(GRP_Grid) -0.2 0.2]); grid on;
+axis([min(GRP_Grid) max(GRP_Grid) -0.15 0.2]); grid on;
 xlabel('GRP Growth Rate','fontsize',30,'fontweight','b');
 title('Short-run Response Function','fontsize',35,'fontweight','b','LineWidth',10.0); 
 legend('GW2 at \kappa=0','GW2 at \kappa=1', '95% CI', '','NumColumns', 1, 'Location', 'Southwest','box','off');
@@ -163,7 +164,7 @@ set(gca,'Linewidth',3.0,'box','on','Ticklength',[0 0],'Fontsize',33,'fontweight'
 subplot(2,1,2)
 plot(Wght, Sum_stat(2:end,2), 'b', 'LineWidth', 2.5); hold on;
 plot(Wght, Sum_stat_GW2(2:end,2), 'r', 'LineWidth', 2.5); hold on;
-legend('GW1', 'GW2', 'Location', 'Northeast','box','off','Orientation','horizontal');
+legend('GW1', 'GW2', 'Location', 'Northwest','box','off','Orientation','horizontal');
 title('Variance','fontsize',35,'fontweight','b','LineWidth',10.0); axis tight; grid on;
 set(gca,'Linewidth',3.0,'box','on','Ticklength',[0 0],'Fontsize',33,'fontweight','b');
 

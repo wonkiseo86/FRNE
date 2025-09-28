@@ -1,4 +1,4 @@
-@ Program Code Descriptions for “Functional Regression with Persistent Nonstationarity and Error Contamination”
+@ Empirical Program Code Descriptions for “Functional Regression with Persistent Nonstationarity and Error Contamination”
                                                                                                                                                    September 2025
                                                                                                                                                       Kyungsik Nam
 
@@ -12,10 +12,13 @@ GRP_den2_full.mat: Contains the density-valued functional time series of tempera
 3. Variance Ratio (VR) Test (Table 1)
 To replicate the VR test reported in Table 1, use the R script FCRGT_Nonstat_Test.r together with the Excel data file Data_FCRGT.xlsx.
 
-4. Comp_pvals: Code for computing p-values for the VR test statistics.
+4. Code for simulation stidy
+To replicate the simulation results in the Supplementary Material, use FRNE_HS_upload.r (accuracy of the estimaotrs) and FRNE_CI_upload.r (coverage probability). 
 
-5. Comp_sim: Code used for simulation experiments. 
+5. Contact Information
+For questions regarding the program code or data, please contact:
 
-6. Contact Information
-For questions regarding the program code or data, please contact: Kyungsik Nam (ksnam@hufs.ac.kr) or Won-Ki Seo (won-ki.seo@sydney.edu.au).
-
+Kyungsik Nam
+Division of Climate Change
+Hankuk University of Foreign Studies
+ksnam@hufs.ac.kr

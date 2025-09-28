@@ -91,10 +91,11 @@ RESID = FC_Y - (fkap_N + fkap_S) * (evec_D(:, 1:K_ind)') * FC_X0;
 %%% Generate the distributional Shock for Global Warming
 Xraw_tem = GTemp0';
 T1 = size(Xraw_tem, 2);
-indx = floor(T1 / 2);
+% indx = floor(T1/2)-7; M = 16; % 51-77 vs 93 - 2019
+indx = floor(T1 / 2)-0; M = 1; % 51-78 vs 92 - 2019
 
-gw_f = mean(Xraw_tem(:,(indx+1):T1),2) - mean(Xraw_tem(:,1:indx),2);
-gw_clr = log(mean(Xraw_tem(:,(indx+1):T1),2) ./ geomean(mean(Xraw_tem(:,(indx+1):T1),2))) - ...
+gw_f = mean(Xraw_tem(:,(indx+M):T1),2) - mean(Xraw_tem(:,1:indx),2);
+gw_clr = log(mean(Xraw_tem(:,(indx+M):T1),2) ./ geomean(mean(Xraw_tem(:,(indx+M):T1),2))) - ...
          log(mean(Xraw_tem(:,1:indx),2) ./ geomean(mean(Xraw_tem(:,1:indx),2)));
 gw = Func_X(1:X_ngrid, :)'*gw_clr * (t_X(2) - t_X(1));
 
@@ -127,7 +128,8 @@ SC_D = (Z0S * Z0S') / T;
 
 P_KS = evec_D(:,(max(Non_dimX)+1):K_ind)';
 theta_raw = (SD_kap_inv * (SC_kap_D' * SC_D * SC_kap_D * SD_kap_inv) * P_KS * gw) .* (P_KS * gw);
-theta = sqrt(sum(theta_raw .^ 2));
+% theta = sqrt(sum(theta_raw .^ 2));
+theta = (sum(theta_raw));
 C_resid = (RESID * RESID') / T;
 
 stepsize = 1;

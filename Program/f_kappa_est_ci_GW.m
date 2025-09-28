@@ -129,7 +129,8 @@ SC_D = (Z0S * Z0S') / T;
 
 P_KS = evec_D(:,(max(Non_dimX)+1):K_ind)';
 theta_raw = (SD_kap_inv * (SC_kap_D' * SC_D * SC_kap_D * SD_kap_inv) * P_KS * gw) .* (P_KS * gw);
-theta = sqrt(sum(theta_raw .^ 2));
+% theta = sqrt(sum(theta_raw .^ 2));
+theta = (sum(theta_raw));
 C_resid = (RESID * RESID') / T;
 
 stepsize = 1;
