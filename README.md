@@ -13,6 +13,10 @@ empirical results, ordered as they appear in the papers:
   Main paper: Table 1 and Figures 1-4
   Supplement: Figures 1-5 in Section D
 
+Regarding the tables and results in the Supplementary Appendix, see the separate file "README-SUPP" in the folder "Revision/Simulations". 
+-----------------------------
+
+
 2. Code Folder and Software Requirements
 -----------------------------------------
 
@@ -127,6 +131,3 @@ The MATLAB and R code read this workbook directly.
   f_kappa_est_ci_GW.m
   inner_product.m
   mrsum.m
-
-8. Regarding the tables and results in the Supplementary Appendix, see the separate file "README-SUPP" in the folder "Revision/Simulations". 
------------------------------
