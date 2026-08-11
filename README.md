@@ -12,6 +12,7 @@ empirical results, ordered as they appear in the papers:
 
   Main paper: Table 1 and Figures 1-4
   Supplement: Figures 1-5 in Section D
+  
   Regarding the other tables and results in the Supplementary Appendix, see the separate file "README-SUPP" in the folder "Revision/Simulations". 
 
 -----------------------------
