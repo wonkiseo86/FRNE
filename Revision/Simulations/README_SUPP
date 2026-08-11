@@ -1,0 +1,33 @@
+# Replication Code for Supplementary Appendix Tables
+
+This repository contains the R scripts and data required to replicate all tables presented in the Supplementary Appendix.
+
+---
+
+## 1. Monte Carlo Simulation Tables (All Tables Except Table F.1)
+
+All tables reporting Monte Carlo simulation results can be replicated in sequential order by following two steps:
+
+1. Run all R scripts in the repository **except** for the following three files:
+   - `CV_for_residual_based_test_multidim.R`
+   - `FCRET_Residual_Based_Tests_empirical_application.R`
+   - `FRNE_generate_simulation_tables.R`
+
+2. Run `FRNE_generate_simulation_tables.R`.
+
+Executing these two steps in order will generate all simulation result tables sequentially.
+
+---
+
+## 2. Empirical Application Table (Table F.1)
+
+To replicate **Table F.1** (empirical results):
+
+- Run `FCRET_Residual_Based_Tests_empirical_application.R`.
+- **Dataset required:** `Residual_Kappa0`
+
+---
+
+## 3. Supplementary Code (not strictly necessary)
+
+- `CV_for_residual_based_test_multidim.R`: This script generates the quantiles of the asymptotic distribution of the residual-based test statistic, which are used to obtain approximate $p$-values reported in Table F.1.
